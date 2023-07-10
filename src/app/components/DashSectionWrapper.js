@@ -1,22 +1,28 @@
 "use client"
 import app from "@/Firebase/Firebase";
-import { redirect } from 'next/navigation'
 import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId, signOut } from "firebase/auth";
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
-import Image from "next/image";
 import Navabr from "../dashboard/components/Navabr";
+import { useRouter } from "next/navigation";
 const DashSectionWrapper = (Component) =>
     function Page() {
         app
         const auth = getAuth()
-        const [user, loading] = useAuthState(auth)
+        const [user, loading, error] = useAuthState(auth)
+        const router = useRouter()
         if (loading) {
-            return <h1>LOADING....</h1>
+            return <h1>LOADING...............</h1>
+        }
+        if (error) {
+            return (
+                <div>
+                    <p>Error: {error}</p>
+                </div>
+            );
         }
         if (!user) {
-            redirect('/')
-            return <div>welcome back {user.displayName}</div>
+            router.push('/')
         }
         return (
             <>

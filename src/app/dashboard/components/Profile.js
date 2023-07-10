@@ -156,7 +156,7 @@ const Profile = (props) => {
           <ul className="list-none leading-10">
             <li className="hover:bg-slate-200 hover:px-2 transition">
               <button
-                onClick={logout()}
+                onClick={logout}
                 className="text-[12px]"
               >
                 Logout

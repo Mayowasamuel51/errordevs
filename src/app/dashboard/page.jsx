@@ -8,20 +8,12 @@ import Navabr from "./components/Navabr";
 import DashSectionWrapper from "../components/DashSectionWrapper";
 
 function Dashboard() {
-    app
-    const auth = getAuth()
-    const [user, loading] = useAuthState(auth)
-    // if (loading) {
-    //     return <h1>LOADING....</h1>
-    // }
-    // if (!user) {
-    //     redirect('/')
-    // }
+
     return (
         <div className="text-center text-3xl font-bold underline">
-          
+         
         </div>
 
     )
 }
-export default DashSectionWrapper(Dashboard)
+export default DashSectionWrapper( Dashboard)

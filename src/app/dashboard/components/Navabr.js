@@ -18,13 +18,13 @@ const Navabr = (props) => {
       <header className="w-full relative bg-slate-50 p-1 shadow-md">
         <div className="flex flex-1 justify-between items-center align-middle mx-auto py-2.5">
           <Link className="mx-4 relative " href="/dashboard">
-            <Image
+            {/* <Image
               src={props.Profile}
               alt={props.Profile}
               className="relative  md:w-[80px] md:h-[60px] w-[60px] h-[60px] rounded-full "
               width={500}
               height={500}
-            />
+            /> */}
           </Link>
           {/* <Searchbar /> */}
           <div className="w-full md:flex gap-10 items-center justify-center hidden">

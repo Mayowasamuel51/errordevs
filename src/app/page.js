@@ -2,27 +2,26 @@
 
 import app from "@/Firebase/Firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId } from "firebase/auth";
-import { redirect } from 'next/navigation'
+import { redirect, useRouter } from 'next/navigation'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import HomeNav from "./components/HomeNav";
 import Job from "./components/Job";
 import Portfoillo from "./components/Portfoillo";
 function Home() {
-  //  intiFirebase()
   app
   const auth = getAuth()
   const provider = new GoogleAuthProvider()
   const [user, loading] = useAuthState(auth)
-  // const router = useRouter()
+  const router = useRouter()
   const signin = async () => {
     const result = await signInWithPopup(auth, provider)
     console.log(result.user)
-
   }
   if (loading) {
     return <h1 className="text-center font-semibold">LOADING....</h1>
   }
   if (user) {
+    // router.push('/dashboard')
     redirect('/dashboard')
   }
 
