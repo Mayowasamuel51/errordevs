@@ -1,6 +1,8 @@
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
+
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAnMKZJ1cC8Amgt6OjFu7g2NXZeqXb6-ZU",
@@ -12,9 +14,9 @@ const firebaseConfig = {
   measurementId: "G-EXKHGHPTY3"
 };
 
-// Initialize Firebase
+// // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+const analytics = isSupported().then(yes => yes ? getAnalytics(app) : null);
 
 
 export default app;

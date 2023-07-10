@@ -1,5 +1,3 @@
-"use client"
-import DashSectionWrapper from "../../components/Wrapper";
 
 
 
@@ -13,4 +11,7 @@ function StoreError() {
     )
 }
 
-export default DashSectionWrapper(StoreError);
+export default
+    // DashSectionWrapper(
+    StoreError
+// );

@@ -1,5 +1,4 @@
 "use client"
-
 import app from "@/Firebase/Firebase";
 import { redirect } from 'next/navigation'
 import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId } from "firebase/auth";
@@ -22,7 +21,7 @@ const DashSectionWrapper = (Component) =>
         }
         return (
             <>
-                <Navabr />
+                    <Navabr profile={ user.photoURL}  />
 
                 <Component />
 
