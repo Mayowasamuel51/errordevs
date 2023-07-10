@@ -1,7 +1,6 @@
-'use client'
 
 function Home() {
-  
+
   return (
     <>
       {/* <div className="bg-white-500">
