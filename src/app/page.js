@@ -19,13 +19,12 @@ function Home() {
     console.log(result.user)
 
   }
-  // if (loading) {
-  //   return <h1 className="text-center font-semibold">LOADING....</h1>
-  // }
-  // if (user) {
-  //   redirect('/dashboard')
-  //   return <div className="text-left">welcome back {user.displayName}</div>
-  // }
+  if (loading) {
+    return <h1 className="text-center font-semibold">LOADING....</h1>
+  }
+  if (user) {
+    redirect('/dashboard')
+  }
 
   return (
     <>

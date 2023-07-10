@@ -1,19 +1,28 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
-
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut } from 'firebase/auth';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { redirect } from 'next/navigation'
 import Link from "next/link";
 import Image from "next/image";
 import { useRef, useCallback } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { redirect, useRouter } from "next/navigation";
-
 const Profile = (props) => {
- 
+  const auth = getAuth();
+  const [user, loading, error] = useAuthState(auth);
   const [show, setShow] = useState(false);
   const handleMenu = () => {
     setShow((prev) => !prev);
+  };
+
+  const logout = () => {
+    signOut(auth);
+    localStorage.removeItem('token');
+    localStorage.removeItem('email');
+    redirect('/')
+    // redirect('/login')
   };
   // console.log(session)
 
@@ -78,7 +87,7 @@ const Profile = (props) => {
           )}
           <Link className="flex flex-col leading-6 items-center" href="/dashboard">
             <span className="text-[15px] font-medium">
-              { props.displayName}
+              {props.displayName}
             </span>
             <small className="text-[10px]">{props.displayName}</small>
           </Link>
@@ -88,8 +97,8 @@ const Profile = (props) => {
 
         <div className="mt-3 p-1 md:hidden block">
           <div className="flex flex-1 justify-center items-center align-baseline mx-auto gap-0 ">
-            
-            
+
+
           </div>
         </div>
         <hr />
@@ -147,7 +156,7 @@ const Profile = (props) => {
           <ul className="list-none leading-10">
             <li className="hover:bg-slate-200 hover:px-2 transition">
               <button
-               onClick={props.out}
+                onClick={logout()}
                 className="text-[12px]"
               >
                 Logout

@@ -1,13 +1,12 @@
 "use client"
 import app from "@/Firebase/Firebase";
 import { redirect } from 'next/navigation'
-import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId, signOut } from "firebase/auth";
 import React from 'react'
 import { useAuthState } from 'react-firebase-hooks/auth'
 import Image from "next/image";
 import Navabr from "../dashboard/components/Navabr";
 const DashSectionWrapper = (Component) =>
-
     function Page() {
         app
         const auth = getAuth()
@@ -21,11 +20,8 @@ const DashSectionWrapper = (Component) =>
         }
         return (
             <>
-                    <Navabr profile={ user.photoURL}  />
-
+                <Navabr profile={user.photoURL} />
                 <Component />
-
-
             </>
         );
     };

@@ -40,11 +40,15 @@ const Navabr = (props) => {
             <Link href="/dashboard/storeerror" className="text-base">
              Store Error Fix
             </Link>
-            <Link href="/dashboard/settings" className="text-base">
+            <Link href="/dashboard/websiteurl" className="text-base">
              Keep website Url's 
             </Link>
-            <Link href="/dashboard" className="text-base">
+            <Link href="/dashboard/portfolio" className="text-base">
               Add Portfoillo's website
+            </Link>
+
+            <Link href="/dashboard/apikey" className="text-base">
+             Api key's
             </Link>
            
           </div>
