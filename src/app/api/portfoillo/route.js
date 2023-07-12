@@ -8,12 +8,11 @@ export async function GET() {
     return NextResponse.json({ data: data, status: 200 })
 }
 export async function POST(req) {
-    const { apiname ,  email  ,   apikey   } = await req.json();
-    console.log(apiname, apikey)
+    const { portfoillo,  email    } = await req.json();
+    console.log(portfoillo, email)
     const apiinfo = await prisma.portfolio.create({
         data: {
-            apiname,
-            apikey,
+           portfoillo,
             email:email
         }
     })

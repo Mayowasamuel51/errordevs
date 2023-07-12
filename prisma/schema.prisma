@@ -11,7 +11,7 @@ datasource db {
 
 model websiteurl {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  email      String   @unique
+  email      String   
   websiteurl String?
   webname    String?
   about      String?
@@ -21,7 +21,7 @@ model websiteurl {
 
 model Api {
   id        String   @id @default(auto()) @map("_id") @db.ObjectId
-  email     String   @unique
+  email     String   
   apiname   String?
   apikey    String?
   createdAt DateTime @default(now())
@@ -30,7 +30,7 @@ model Api {
 
 model StoreError {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  email      String   @unique
+  email      String  
   errorname  String?
   errorcode  String?
   errorimage String?
@@ -40,8 +40,8 @@ model StoreError {
  
 model portfolio {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  email      String   @unique
-  portfollio String?
+  email      String   
+  portfoillo String?
   createdAt  DateTime @default(now())
   updateAt   DateTime @updatedAt
 }

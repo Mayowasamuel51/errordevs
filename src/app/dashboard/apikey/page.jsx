@@ -7,6 +7,8 @@ import app from "@/Firebase/Firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId, signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { ToastContainer, toast } from 'react-toastify';
+import Api from "../dashboardPages/Api";
+import Link from "next/link";
 function Apikey() {
     app
     const auth = getAuth()
@@ -34,27 +36,20 @@ function Apikey() {
 
         axios.post(`http://localhost:3000/api/apikey`, data)
             .then((res) => {
-                // if (res.status.data === 200) {
-              
-                setTimeout(() => {
-                    good()
-             }, 6000)
-                // }
+
+                good()
+
             }
             ).catch((err) => {
-                // notyf.error('Network issues')
                 console.log(err)
                 notify()
-
             }
             )
     }
-
     return (
         <>
             <div className="bg-black px-5 py-7 md:px-14 md:py-14 ">
-                <h1 className="text-center font-semibold pt-4 text-white">Store Api Key </h1>
-
+                <h1 className="text-center font-semibold pt-4 text-white">Store Api Key's </h1>
                 <div className="w-ful">
                     <form onSubmit={apikeyhandle} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                         <div className="mb-4">
@@ -83,7 +78,9 @@ function Apikey() {
 
                 </div>
 
+                <Link href="/dashboard/apikey/key"  className="bg-black-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">see key's</Link>
 
+              
             </div>
             <hr />
 

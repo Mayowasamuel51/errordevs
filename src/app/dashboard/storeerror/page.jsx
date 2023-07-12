@@ -6,8 +6,8 @@ import { Suspense, useState } from "react";
 function StoreError() {
     return (
         <>
-            <div className=" ">
-                <h1 className="text-center font-semibold pt-4">Store the  error your Fixed   </h1>
+            <div className="bg-black px-5 py-7 md:px-14 md:py-14 ">
+                <h1 className="text-center font-semibold pt-4 text-white">Store the  error your Fixed   </h1>
 
                 <div className="w-ful">
                     <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
