@@ -1,13 +1,13 @@
 'use client'
 // import a from 'next/a';
 import { useState } from 'react';
-function ApiKey({ apikey }) {
+function PortLink({ port }) {
     const [currentpage, setCurrentpage] = useState(1)
     const recordPerpage = 3;
     const lastindex = currentpage * recordPerpage;
     const firstindex = lastindex - recordPerpage;
-    const records = apikey.slice(firstindex, lastindex)
-    const npage = Math.ceil(apikey.length / recordPerpage);
+    const records = port.slice(firstindex, lastindex)
+    const npage = Math.ceil(port.length / recordPerpage);
     const number = [...Array(npage + 1).keys()].slice(1)
 
     function nextPage() {
@@ -32,11 +32,11 @@ function ApiKey({ apikey }) {
                     <thead>
                         <tr>
                             <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
-                                Api Name
+                              portfoillo site 
                             </th>
-                            <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
+                            {/* <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                 Api Key
-                            </th>
+                            </th> */}
                             <th className="px-5 py-3 border-b-2 border-gray-200 bg-gray-100 text-left text-xs font-semibold text-gray-700 uppercase tracking-wider">
                                 Date
                             </th>
@@ -53,18 +53,15 @@ function ApiKey({ apikey }) {
                                         <div className="flex">
 
                                             <div className="ml-3">
-                                                <p className="text-gray-900 whitespace-no-wrap">
-                                                    {item.apiname}
-                                                </p>
+                                                <a href={`${item.portfoillo}`} className="text-gray-900 whitespace-no-wrap">
+                                                    {item.portfoillo}
+                                                </a>
 
                                             </div>
                                         </div>
                                     </td>
 
-                                    <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                        <p className="text-gray-900 whitespace-no-wrap">{item.apikey}</p>
-
-                                    </td>
+                                
                                     <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm ">
                                         <p className="text-gray-900 whitespace-no-wrap">{item.createdAt}</p>
                                     </td>
@@ -120,4 +117,4 @@ function ApiKey({ apikey }) {
     )
 }
 
-export default ApiKey;
+export default PortLink

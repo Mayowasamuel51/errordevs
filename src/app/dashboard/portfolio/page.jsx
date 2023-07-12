@@ -7,6 +7,7 @@ import app from "@/Firebase/Firebase";
 import { getAuth, signInWithPopup, GoogleAuthProvider, ProviderId, signOut } from "firebase/auth";
 import { useAuthState } from 'react-firebase-hooks/auth'
 import { ToastContainer, toast } from 'react-toastify';
+import Link from "next/link";
 function PortfoilloPage() {
     app
     const auth = getAuth()
@@ -70,6 +71,8 @@ function PortfoilloPage() {
                     </div>
 
                 </form>
+                <Link href="/dashboard/portfolio/port"  className="bg-black-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">view portfoillo</Link>
+
             </div>
             <hr />
 
