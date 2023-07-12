@@ -3,7 +3,7 @@ import NetworkError from "../../NetworkError";
 import ApiKey from "../components/ApiKey";
 import PortLink from "../components/PortLink";
 async function fetchport() {
-    const response = await fetch('http://localhost:3000/api/portfoillo', {
+    const response = await fetch('/api/portfoillo', {
         next: { revalidate: 20 }
     })
     try {

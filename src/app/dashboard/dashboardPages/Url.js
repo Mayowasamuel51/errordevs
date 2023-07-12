@@ -4,20 +4,20 @@ import ApiKey from "../components/ApiKey";
 import PortLink from "../components/PortLink";
 import WebsiteUrl from "../components/WebsiteUrl";
 async function fetchurl() {
-    const response = await fetch('http://localhost:3000/api/websiteurl', {
+    const response = await fetch('/api/websiteurl', {
         next: { revalidate: 20 }
     })
     try {
         if (!response.ok) {
             if (response.status === 404) {
                 return <NetworkError />
-                throw new Error('Resource not found');
+                // throw new Error('Resource not found');
             } else if (response.status === 500) {
                 return <NetworkError />
-                throw new Error('Internal server error');
+                // throw new Error('Internal server error');
             } else {
                 return <NetworkError />
-                throw new Error('Unknown server error');
+                // throw new Error('Unknown server error');
             }
         }
         const data = await response.json()

@@ -2,7 +2,7 @@ import React, { Suspense, cache } from "react";
 import NetworkError from "../../NetworkError";
 import ApiKey from "../components/ApiKey";
 async function fetchapis() {
-    const response = await fetch('http://localhost:3000/api/apikey', {
+    const response = await fetch('/api/apikey', {
         next: { revalidate: 20 }
     })
     try {
